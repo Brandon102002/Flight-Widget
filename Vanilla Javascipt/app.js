@@ -50,7 +50,7 @@ function populateTable() {
             for (const char of word) {
                 const charElement = document.createElement('div');
                 charElement.classList.add('flip');
-                charElement.textContent = letter;
+                charElement.textContent = char;
                 tableCell.append(charElement);
             }
 
