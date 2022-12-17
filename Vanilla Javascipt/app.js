@@ -136,8 +136,8 @@ function shuffleDetails() {
     });
 
     tableBody.textContent = "";
-    populateTable()
+    populateTable();
 
 }
 
-setInterval(shuffleDetails, 5000)
+setInterval(shuffleDetails, 4000);
