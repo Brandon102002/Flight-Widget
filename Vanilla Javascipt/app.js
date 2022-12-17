@@ -13,7 +13,7 @@ let flights = [
         destination: "SFO",
         flight: "GN231",
         gate: "B03",
-        status: "DELAYED",
+        status: "ON TIME",
     },
     {
         time: "02:47",
@@ -39,7 +39,7 @@ let flights = [
 ];
 
 const destinations = ["LAX", "SFO", "SAN", "OAK", "SMF", "SNA", "ONT", "BUR", "LGB", "PSP", "FAT"];
-const statuses = ["ON TIME", "ON TIME", "ON TIME", "ON TIME", "DELAYED", "DELAYED"];
+const statuses = ["ON TIME", "ON TIME", "ON TIME", "ON TIME", "DELAYED"];
 let hour = 6;
 
 function populateTable() {
