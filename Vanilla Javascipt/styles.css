@@ -3,7 +3,7 @@
 * {
     font-family: 'Ubuntu Condensed', sans-serif;
     color: rgb(240, 240, 240);
-    font-size: 30px; /* chagned from 35 */
+    font-size: 30px;
 }
 
 body {
@@ -22,6 +22,7 @@ header {
     background-color: rgb(6, 6, 6);
     border-radius: 10px;
     padding: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 .departures table {
