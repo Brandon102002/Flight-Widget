@@ -41,15 +41,19 @@ header {
 }
 
 #time {
-    width: 160px;
+    width: 150px;
 }
 
 #dest {
-    width: 260px;
+    width: 140px;
 }
 
 #flight {
-    width: 135px;
+    width: 180px;
+}
+
+#gate {
+    width: 150px;
 }
 
 #remarks {
