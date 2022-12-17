@@ -41,21 +41,37 @@ header {
 }
 
 #time {
-    width: 150px;
-}
-
-#dest {
     width: 140px;
 }
 
+#dest {
+    width: 130px;
+}
+
 #flight {
-    width: 180px;
+    width: 170px;
 }
 
 #gate {
-    width: 150px;
+    width: 130px;
 }
 
 #remarks {
     width: 260px;
+}
+
+.flip {
+    animation: 0.5s linear flipping;
+}
+
+@keyframes flipping {
+    0% {
+        transform: rotateX(0deg);
+    }
+    50% {
+        transform: rotateX(90deg);
+    }
+    100% {
+        transform: rotateX(0deg);
+    }
 }
