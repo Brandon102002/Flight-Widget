@@ -98,10 +98,10 @@ function genRandomNum(maxNum) {
 }
 
 function generateTime() {
-    minutes = minutes + Math.floor(Math.random() * (200));
+    minutes += Math.floor(Math.random() * (200));
 
     while (minutes >= 60) {
-        minutes /= 60;
+        minutes -= 60;
         hour = (hour < 23) ? hour + 1 : hour = 1;
     }
   
