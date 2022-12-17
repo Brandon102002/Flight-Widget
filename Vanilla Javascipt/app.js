@@ -39,7 +39,7 @@ let flights = [
 ];
 
 const destinations = ["LAX", "SFO", "SAN", "OAK", "SMF", "SNA", "ONT", "BUR", "LGB", "PSP", "FAT"];
-const statuses = ["ON TIME", "ON TIME", "ON TIME", "DELAYED", "DELAYED", "CANCELLED"];
+const statuses = ["ON TIME", "ON TIME", "DELAYED"];
 let hour = 6;
 
 function populateTable() {
@@ -93,20 +93,14 @@ function genRandomNum(maxNum) {
 }
 
 function generateTime() {
-    let displayHour = hour;
+    hour++;
 
-    if (hour < 24) {
-        hour++;
-    } else {
-        hour = 1;
-        displayHour = hour
+    if (hour >= 24) {
+      hour = 1;
     }
-
-    if (hour < 10) {
-        displayHour = "0" + hour
-    }
-
-    return displayHour + ":" + genRandomNum(5) + genRandomNum();
+  
+   const displayHour = (hour < 10) ? "0" + hour : hour;
+   return displayHour +  ":" + generateRandomNumber(5) + generateRandomNumber()
 }
 
 function generateDest() {
