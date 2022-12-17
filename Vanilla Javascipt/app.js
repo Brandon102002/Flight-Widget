@@ -100,7 +100,7 @@ function generateTime() {
     }
   
    const displayHour = (hour < 10) ? "0" + hour : hour;
-   return displayHour +  ":" + generateRandomNumber(5) + generateRandomNumber()
+   return displayHour +  ":" + genRandomNum(5) + genRandomNum();
 }
 
 function generateDest() {
