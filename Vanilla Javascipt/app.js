@@ -39,7 +39,7 @@ let flights = [
 ];
 
 const destinations = ["LAX", "SFO", "SAN", "OAK", "SMF", "SNA", "ONT", "BUR", "LGB", "PSP", "FAT"];
-const statuses = ["ON TIME", "DELAYED", "CANCELLED"];
+const statuses = ["ON TIME", "ON TIME", "ON TIME", "DELAYED", "DELAYED", "CANCELLED"];
 let hour = 6;
 
 function populateTable() {
@@ -72,8 +72,13 @@ function populateTable() {
 populateTable();
 
 
-function genRandomChar() {
-    const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+function genRandomChar(maxChar) {
+    let alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+    if (maxChar) {
+        alphabet.slice(0, alphabet.indexOf(maxChar) + 1);
+    }
+
     return alphabet.charAt(Math.floor(Math.random() * alphabet.length));
 }
 
@@ -81,18 +86,10 @@ function genRandomNum(maxNum) {
     let nums = "0123456789";
 
     if (maxNum) {
-        nums = nums.slice(0, maxNum);
+        nums = nums.slice(0, maxNum + 1);
     }
 
     return nums.charAt(Math.floor(Math.random() * nums.length));
-}
-
-function generateFlight() {
-    return genRandomChar() + genRandomChar() + genRandomNum() + genRandomNum() + genRandomNum();
-}
-
-function generateGate() {
-    return genRandomChar() + Math.round(Math.random()) + genRandomNum();
 }
 
 function generateTime() {
@@ -109,17 +106,33 @@ function generateTime() {
         displayHour = "0" + hour
     }
 
-    return displayHour + ":" + genRandomNum() + genRandomNum();
+    return displayHour + ":" + genRandomNum(5) + genRandomNum();
+}
+
+function generateDest() {
+    return destinations[genRandomNum(destinations.length)];
+}
+
+function generateFlight() {
+    return genRandomChar() + genRandomChar() + genRandomNum() + genRandomNum() + genRandomNum();
+}
+
+function generateGate() {
+    return genRandomChar("G") + genRandomNum(2) + genRandomNum();
+}
+
+function generateStatus() {
+    return statues[genRandomNum(statuses.length)];
 }
 
 function shuffleDetails() {
     flights.shift();
     flights.push({
         time: generateTime(),
-        dest: destinations[Math.floor(Math.random() * destinations.length)],
+        dest: generateDest(),
         flight: generateFlight(),
         gate: generateGate(),
-        status: statuses[Math.floor(Math.random() * statuses.length)]
+        status: generateStatus(),
     });
 
     tableBody.textContent = "";
