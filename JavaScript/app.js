@@ -98,7 +98,7 @@ function genRandomNum(maxNum) {
 }
 
 function generateTime() {
-    minutes += Math.floor(Math.random() * (200));
+    minutes += Math.floor(Math.random() * (120));
 
     while (minutes >= 60) {
         minutes -= 60;
@@ -106,7 +106,8 @@ function generateTime() {
     }
   
    const displayHour = (hour < 10) ? "0" + hour : hour;
-   return displayHour +  ":" + minutes;
+   const displayMins = (minutes < 10) ? "0" + minutes : minutes;
+   return displayHour +  ":" + displayMins;
 }
 
 function generateDest() {
