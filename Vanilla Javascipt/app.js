@@ -47,11 +47,15 @@ function populateTable() {
             const word = Array.from(flight[flightDetail]);
 
             // Append details letter by letter so we can flip independently
-            for (const char of word) {
+            for (const [index, char] of word.entries()) {
                 const charElement = document.createElement('div');
-                charElement.classList.add('flip');
-                charElement.textContent = char;
-                tableCell.append(charElement);
+
+                setTimeout(() => {
+                    charElement.classList.add('flip');
+                    charElement.textContent = char;
+                    tableCell.append(charElement);  
+                }, 100 * index)
+
             }
 
             tableRow.append(tableCell);
