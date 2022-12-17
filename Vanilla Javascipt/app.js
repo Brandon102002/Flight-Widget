@@ -41,6 +41,7 @@ let flights = [
 const destinations = ["LAX", "SFO", "SAN", "OAK", "SMF", "SNA", "ONT", "BUR", "LGB", "PSP", "FAT"];
 const statuses = ["ON TIME", "ON TIME", "ON TIME", "ON TIME", "DELAYED"];
 let hour = 6;
+let minutes = 39;
 
 function populateTable() {
     for (const flight of flights) {
@@ -97,10 +98,11 @@ function genRandomNum(maxNum) {
 }
 
 function generateTime() {
-    hour++;
+    minutes = minutes + Math.floor(Math.random() * (200));
 
-    if (hour >= 24) {
-      hour = 1;
+    while (minutes >= 60) {
+        minutes /= 60;
+        hour = (hour < 23) ? hour + 1 : hour = 1;
     }
   
    const displayHour = (hour < 10) ? "0" + hour : hour;
