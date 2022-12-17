@@ -122,7 +122,7 @@ function generateGate() {
 }
 
 function generateStatus() {
-    return statues[genRandomNum(statuses.length)];
+    return statuses[genRandomNum(statuses.length)];
 }
 
 function shuffleDetails() {
