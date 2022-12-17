@@ -39,7 +39,7 @@ let flights = [
 ];
 
 const destinations = ["LAX", "SFO", "SAN", "OAK", "SMF", "SNA", "ONT", "BUR", "LGB", "PSP", "FAT"];
-const statuses = ["ON TIME", "ON TIME", "DELAYED"];
+const statuses = ["ON TIME", "ON TIME", "ON TIME", "ON TIME", "DELAYED", "DELAYED"];
 let hour = 6;
 
 function populateTable() {
