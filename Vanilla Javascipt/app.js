@@ -140,4 +140,4 @@ function shuffleDetails() {
 
 }
 
-setInterval(shuffleDetails, 3000)
+setInterval(shuffleDetails, 5000)
