@@ -16,21 +16,21 @@ let flights = [
         status: "DELAYED",
     },
     {
-        time: "4:20",
+        time: "04:20",
         destination: "BUR",
         flight: "F9H24",
         gate: "A2",
         status: "ON TIME",
     },
     {
-        time: "1:02",
+        time: "02:06",
         destination: "RNO",
         flight: "K5471",
         gate: "C6",
         status: "DELAYED",
     },
     {
-        time: "1:57",
+        time: "01:53",
         destination: "OAK",
         flight: "CE907",
         gate: "B1",
@@ -44,7 +44,16 @@ function populateTable() {
 
         for (const flightDetail in flight) {
             const tableCell = document.createElement("td")
-            tableCell.innerText = flight[flightDetail];
+            const word = Array.from(flight[flightDetail]);
+
+            // Append details letter by letter so we can flip independently
+            for (const char of word) {
+                const charElement = document.createElement('div');
+                charElement.classList.add('flip');
+                charElement.textContent = letter;
+                tableCell.append(charElement);
+            }
+
             tableRow.append(tableCell);
         }
 
