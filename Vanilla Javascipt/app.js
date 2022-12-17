@@ -46,8 +46,12 @@ function populateTable() {
     for (const flight of flights) {
         const tableRow = document.createElement("tr");
 
+        const tableIcon = document.createElement("td");
+        tableIcon.textContent = "✈";
+        tableRow.append(tableIcon);
+
         for (const flightDetail in flight) {
-            const tableCell = document.createElement("td")
+            const tableCell = document.createElement("td");
             const word = Array.from(flight[flightDetail]);
 
             // Append details letter by letter so we can flip independently
@@ -104,7 +108,7 @@ function generateTime() {
 }
 
 function generateDest() {
-    return destinations[genRandomNum(destinations.length)];
+    return destinations[Math.floor(Math.random() * destinations.length)];
 }
 
 function generateFlight() {
@@ -116,7 +120,7 @@ function generateGate() {
 }
 
 function generateStatus() {
-    return statuses[genRandomNum(statuses.length)];
+    return statuses[Math.floor(Math.random() * statuses.length)];
 }
 
 function shuffleDetails() {
@@ -128,10 +132,8 @@ function shuffleDetails() {
         gate: generateGate(),
         status: generateStatus(),
     });
-
     tableBody.textContent = "";
     populateTable();
-
 }
 
-setInterval(shuffleDetails, 3000);
+setInterval(shuffleDetails, 5000);
