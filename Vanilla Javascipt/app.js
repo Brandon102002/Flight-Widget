@@ -2,41 +2,45 @@ const tableBody = document.getElementById('table-body');
 
 let flights = [
     {
-        time: "11:44",
+        time: "01:53",
         destination: "LAX",
         flight: "J7683",
         gate: "A12",
         status: "ON TIME",
     },
     {
-        time: "09:17",
+        time: "02:06",
         destination: "SFO",
         flight: "GN231",
-        gate: "B3",
+        gate: "B03",
         status: "DELAYED",
+    },
+    {
+        time: "02:47",
+        destination: "BUR",
+        flight: "F9H24",
+        gate: "A02",
+        status: "ON TIME",
     },
     {
         time: "04:20",
-        destination: "BUR",
-        flight: "F9H24",
-        gate: "A2",
-        status: "ON TIME",
-    },
-    {
-        time: "02:06",
         destination: "RNO",
         flight: "K5471",
-        gate: "C6",
+        gate: "C06",
         status: "DELAYED",
     },
     {
-        time: "01:53",
+        time: "05:32",
         destination: "OAK",
         flight: "CE907",
-        gate: "B1",
+        gate: "B17",
         status: "ON TIME",
     }
 ];
+
+const destinations = ["LAX", "SFO", "SAN", "OAK", "SMF", "SNA", "ONT", "BUR", "LGB", "PSP", "FAT"];
+const statuses = ["ON TIME", "DELAYED", "CANCELLED"];
+let hour = 6;
 
 function populateTable() {
     for (const flight of flights) {
@@ -66,3 +70,61 @@ function populateTable() {
 }
 
 populateTable();
+
+
+function genRandomChar() {
+    const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    return alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+}
+
+function genRandomNum(maxNum) {
+    let nums = "0123456789";
+
+    if (maxNum) {
+        nums = nums.slice(0, maxNum);
+    }
+
+    return nums.charAt(Math.floor(Math.random() * nums.length));
+}
+
+function generateFlight() {
+    return genRandomChar() + genRandomChar() + genRandomNum() + genRandomNum() + genRandomNum();
+}
+
+function generateGate() {
+    return genRandomChar() + Math.round(Math.random()) + genRandomNum();
+}
+
+function generateTime() {
+    let displayHour = hour;
+
+    if (hour < 24) {
+        hour++;
+    } else {
+        hour = 1;
+        displayHour = hour
+    }
+
+    if (hour < 10) {
+        displayHour = "0" + hour
+    }
+
+    return displayHour + ":" + genRandomNum() + genRandomNum();
+}
+
+function shuffleDetails() {
+    flights.shift();
+    flights.push({
+        time: generateTime(),
+        dest: destinations[Math.floor(Math.random() * destinations.length)],
+        flight: generateFlight(),
+        gate: generateGate(),
+        status: statuses[Math.floor(Math.random() * statuses.length)]
+    });
+
+    tableBody.textContent = "";
+    populateTable()
+
+}
+
+setInterval(shuffleDetails, 3000)
