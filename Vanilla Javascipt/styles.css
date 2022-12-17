@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Asap+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap');
 
 * {
-    font-family: 'Asap Condensed', sans-serif;
+    font-family: 'Ubuntu Condensed', sans-serif;
     color: rgb(240, 240, 240);
     font-size: 35px;
 }
@@ -41,7 +41,7 @@ header {
 }
 
 #time {
-    width: 300px;
+    width: 160px;
 }
 
 #dest {
