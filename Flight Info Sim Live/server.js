@@ -20,7 +20,7 @@ app.get('/flights', (req, res) => {
       
       axios.request(options).then(function (response) {
           console.log(response.data);
-          res.json();
+          res.json(response.data);
       }).catch(function (error) {
           console.error(error);
       });
